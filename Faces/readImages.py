@@ -28,12 +28,12 @@ def read_images(path, image_size):
     return names, training_images, training_labels
 
 
-path_to_training_images = '../Resources/faces/dt'
+path_to_training_images = '../Resources/faces'
 training_image_size = (200, 200)
 names, training_images, training_labels = read_images(
     path_to_training_images, training_image_size)
 
-model = cv2.face.FisherFaceRecognizer_create()
+model = cv2.face.EigenFaceRecognizer_create()
 model.train(training_images, training_labels)
 
 face_cascade = cv2.CascadeClassifier('../cascades/haarcascade_frontalface_default.xml')
